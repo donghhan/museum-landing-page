@@ -11,6 +11,12 @@ body {
   background-color: $cream;
 }
 
+main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
 a {
   text-decoration: none;
   display: inline-block;
@@ -35,4 +41,23 @@ button {
   background: transparent;
   border: transparent;
   cursor: pointer;
+}
+
+textarea,
+input {
+  background-color: $beige;
+  outline: none;
+  border: transparent;
+  font-family: $ogg;
+  padding-left: 20px;
+
+  &::placeholder {
+    color: $black;
+    font-family: $ogg;
+  }
+}
+
+select {
+  border: transparent;
+  background-color: $beige;
 }

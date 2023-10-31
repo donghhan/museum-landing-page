@@ -15,8 +15,6 @@ export default function Header() {
     { href: "/contact", text: "Contact" },
   ];
 
-  console.log(open);
-
   return (
     <header>
       <div

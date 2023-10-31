@@ -12,7 +12,8 @@
     "cheerio": "1.0.0-rc.12",
     "next": "14.0.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.47.0"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.33",

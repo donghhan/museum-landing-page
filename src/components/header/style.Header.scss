@@ -13,14 +13,11 @@
 header {
   display: flex;
   width: 100%;
-  height: 100vh;
-  position: relative;
-
-  // transform: translateX(-100%);
-
-  // &.open {
-  //   transform: translateX(0);
-  // }
+  height: 1vh; // ??
+  position: fixed;
+  top: 0;
+  z-index: 500;
+  left: 0;
 
   .hamburger-button {
     position: absolute;
@@ -65,9 +62,9 @@ header {
   }
 
   .menu {
+    position: relative;
     height: 100vh;
     background-color: $beige;
-    z-index: 1000;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,12 +72,19 @@ header {
     gap: 30px;
     text-align: center;
     font-family: $ogg;
-    position: relative;
     transform: translateX(-100%);
     transition: transform 0.5s ease-in-out;
 
+    @include media("<lg") {
+      width: 100%;
+    }
+
+    @include media(">=lg") {
+      width: 40%;
+    }
+
     &.open {
-      transform: translate(0);
+      transform: translateX(0);
       transition: transform 0.5s ease-in-out;
       transition-delay: 0.5s;
     }
@@ -106,49 +110,5 @@ header {
         font-size: 5vw;
       }
     }
-
-    @include media("<md") {
-      width: 100%;
-    }
-
-    @include media(">=md") {
-      width: 40%;
-    }
   }
-
-  // .menu {
-  //   background-color: $beige;
-  //   position: relative;
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   justify-content: center;
-  //   gap: 20px;
-
-  //   .close-button {
-  //     width: 30px;
-  //     height: 30px;
-  //     position: absolute;
-  //     top: 30px;
-  //     right: 30px;
-  //   }
-
-  //   .link {
-  //     font-family: $ogg;
-  //   }
-  // }
-
-  // @include media("<md") {
-  //   .link {
-  //     font-size: 50px;
-  //   }
-  // }
-
-  // @include media(">=md") {
-  //   max-width: 40%;
-
-  //   .link {
-  //     font-size: 5vw;
-  //   }
-  // }
 }

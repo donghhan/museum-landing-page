@@ -1,0 +1,113 @@
+@use "../../styles/variables/" as *;
+
+#contact {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+
+  .title {
+    font-weight: 500;
+    font-size: 15vw;
+  }
+
+  #contact-form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: $ogg;
+
+    input {
+      height: 50px;
+      width: 100%;
+      background-color: $beige;
+    }
+
+    .user-info {
+      display: flex;
+      gap: 10px;
+
+      @include media("<=md") {
+        flex-direction: column;
+      }
+
+      @include media(">md") {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      #email-input,
+      #category-input {
+        width: 100%;
+        height: 50px;
+        background-color: $beige;
+        font-size: 12px;
+        display: flex;
+        position: relative;
+
+        #dropdown-header {
+          padding-right: 20px;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+        }
+
+        .dropdown-menu {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          font-size: 12px;
+          position: absolute;
+          bottom: -150px;
+          left: 0;
+          background-color: $beige;
+
+          .input {
+            height: 50px;
+            padding-left: 20px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            &:hover {
+              backdrop-filter: brightness(0.8);
+            }
+          }
+        }
+      }
+    }
+
+    #user-description {
+      padding-top: 20px;
+      height: 150px;
+      resize: vertical;
+    }
+
+    .error {
+      color: crimson;
+
+      &::placeholder {
+        color: crimson;
+      }
+    }
+
+    .submit-button {
+      background-color: $black;
+      color: $white;
+      cursor: pointer;
+    }
+
+    .error-message {
+      font-size: 12px;
+      padding-left: 20px;
+      color: crimson;
+    }
+  }
+}
