@@ -22,8 +22,11 @@ export default function Contact() {
     handleSubmit,
     formState: { errors },
     getValues,
+    clearErrors,
     setValue,
-  } = useForm<FormInputProp>();
+  } = useForm<FormInputProp>({
+    mode: "onChange",
+  });
 
   const categoryOptions = [
     { name: "Choose Subject" },
@@ -100,6 +103,7 @@ export default function Contact() {
                       value={i.name}
                       onClick={() => {
                         setSelectedCateogry(i.name);
+                        clearErrors();
                         setCategoryMenuOpen(false);
                       }}
                       className="input"
