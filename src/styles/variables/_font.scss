@@ -1,0 +1,65 @@
+@font-face {
+  font-family: Ogg;
+  src: url("../font/Ogg-Bold.woff2") format("woff2"),
+    url("../font/Ogg-Bold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Ogg;
+  src: url("../font/Ogg-BoldItalic.woff2") format("woff2"),
+    url("../font/Ogg-BoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Ogg;
+  src: url("../font/Ogg-Medium.woff2") format("woff2"),
+    url("../font/Ogg-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Ogg;
+  src: url("../font/Ogg-MediumItalic.woff2") format("woff2"),
+    url("../font/Ogg-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Ogg;
+  src: url("../font/Ogg-Regular.woff2") format("woff2"),
+    url("../font/Ogg-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Ogg;
+  src: url("../font/Ogg-RegularItalic.woff2") format("woff2"),
+    url("../font/Ogg-RegularItalic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: AvantGarde;
+  src: url("../font/AvantGarde-Regular.woff2") format("woff2"),
+    url("../font/AvantGarde-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+$ogg: "Ogg";
+$avantGarde: "AvantGarde";

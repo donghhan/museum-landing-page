@@ -1,0 +1,38 @@
+@use "./variables/" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: $cream;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+}
+
+h1 {
+  font-family: $ogg;
+  font-weight: 600;
+}
+
+span {
+  display: inline-block;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+button {
+  background: transparent;
+  border: transparent;
+  cursor: pointer;
+}
