@@ -9,10 +9,10 @@ export default function Header() {
   const [open, setOpen] = useState<boolean>(false);
 
   const linkData = [
-    { href: "/", text: "About" },
-    { href: "/", text: "Gallery" },
-    { href: "/", text: "Exhibition" },
-    { href: "/", text: "Contact" },
+    { href: "/about", text: "About" },
+    { href: "/gallery", text: "Gallery" },
+    { href: "/exhibition", text: "Exhibition" },
+    { href: "/contact", text: "Contact" },
   ];
 
   console.log(open);

@@ -94,12 +94,12 @@ header {
     }
 
     .link {
-      @include media(">=sm") {
+      @include media(">xs") {
         font-size: 60px;
       }
 
-      @include media("<md") {
-        font-size: 10px;
+      @include media(">sm") {
+        font-size: 80px;
       }
 
       @include media(">=md") {
