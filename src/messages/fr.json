@@ -1,0 +1,18 @@
+{
+    "Home": {},
+    "About": {},
+    "Contact": {
+        "title": "Contact",
+        "email_input": "Email",
+        "email_required_error": "Veuillez fournir votre adresse e-mail",
+        "invalid_email_error": "Adresse e-mail invalide",
+        "choose_category": "Choisir le sujet",
+        "category_error": "vous devez choisir la catégorie",
+        "suggestion": "Suggestion",
+        "question": "Question",
+        "alert": "Alerte",
+        "give_us_feedback": "Donnez-nous votre avis!",
+        "feedback_error": "Veuillez donner votre avis!",
+        "submit": "Soumettre"
+    }
+}

@@ -1,12 +1,18 @@
 "use client";
 import "./style.Header.scss";
-import { useState } from "react";
-import Link from "next/link";
+import { useState, useTransition } from "react";
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter, usePathname } from "next-intl/client";
+import Link from "next-intl/link";
 import close from "@/app/icon/close.svg";
 
 export default function Header() {
   const [open, setOpen] = useState<boolean>(false);
+  const [isPending, startTransition] = useTransition();
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = useLocale();
 
   const linkData = [
     { href: "/", text: "Home" },
@@ -15,6 +21,13 @@ export default function Header() {
     { href: "/exhibition", text: "Exhibition" },
     { href: "/contact", text: "Contact" },
   ];
+
+  const languageSelector = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const language = event.currentTarget.getAttribute("value") as string;
+    startTransition(() => {
+      router.replace(pathname, { locale: language });
+    });
+  };
 
   return (
     <header>
@@ -34,9 +47,13 @@ export default function Header() {
           </li>
         ))}
         <li className="language-selector">
-          <button id="english">EN</button>
+          <button id="english" value="en" onClick={languageSelector}>
+            EN
+          </button>
           <span>&#183;</span>
-          <button id="french">FR</button>
+          <button id="french" value="fr" onClick={languageSelector}>
+            FR
+          </button>
         </li>
       </ul>
     </header>

@@ -1,0 +1,18 @@
+{
+    "Home": {},
+    "About": {},
+    "Contact": {
+        "title": "Contact Us",
+        "email_input": "Your Email",
+        "email_required_error": "Please provide your email address",
+        "invalid_email_error": "Invalid email address",
+        "choose_category": "Choose Subject",
+        "category_error": "You must choose category",
+        "suggestion": "Suggestion",
+        "question": "Question",
+        "alert": "Alert",
+        "give_us_feedback": "Give us your feedback!",
+        "feedback_error": "Please provide your thoughts!",
+        "submit": "Submit"
+    }
+}

@@ -1,6 +1,7 @@
 "use client";
 import "./style.Contact.scss";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import dropdownIcon from "@/app/icon/dropdown.svg";
@@ -14,9 +15,11 @@ interface FormInputProp {
 }
 
 export default function Contact() {
+  const t = useTranslations("Contact");
+  const chooseCategory = t("choose_category");
   const [categoryMenuOpen, setCategoryMenuOpen] = useState<boolean>(false);
   const [selectedCategory, setSelectedCateogry] =
-    useState<string>("Choose Subject");
+    useState<string>(chooseCategory);
 
   const {
     register,
@@ -28,16 +31,17 @@ export default function Contact() {
   } = useForm<FormInputProp>();
 
   const categoryOptions = [
-    { name: "Choose Subject" },
-    { name: "Suggestion" },
-    { name: "Question" },
-    { name: "Alert" },
+    { name: t("choose_category") },
+    { name: t("suggestion") },
+    { name: t("question") },
+    { name: t("alert") },
   ];
 
   const formSubmit = async (data: FormInputProp) => {
     const inputValues = getValues();
 
     try {
+      console.log(inputValues);
     } catch (error: any) {
       console.log(error);
     }
@@ -47,7 +51,7 @@ export default function Contact() {
     <main>
       <Header />
       <section id="contact">
-        <h1 className="title">Contact Us</h1>
+        <h1 className="title">{t("title")}</h1>
         <form id="contact-form" onSubmit={handleSubmit(formSubmit)}>
           <div className="user-info">
             <div id="email-input">
@@ -55,14 +59,14 @@ export default function Contact() {
                 type="email"
                 className={errors.email ? "error" : ""}
                 placeholder={
-                  errors.email ? errors.email?.message : "Your Email"
+                  errors.email ? errors.email?.message : t("email_input")
                 }
                 {...register("email", {
-                  required: "Please provide your email address",
+                  required: t("email_required_error"),
                   pattern: {
                     value:
                       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                    message: "Invalid email address",
+                    message: t("invalid_email_error"),
                   },
                 })}
               />
@@ -80,7 +84,7 @@ export default function Contact() {
                   className={errors.category ? "error" : ""}
                   {...register("category", {
                     validate: (v: string) =>
-                      v !== "Choose Subject" || "You must choose category",
+                      v !== t("choose_category") || t("category_error"),
                   })}
                 />
                 <Image
@@ -122,9 +126,7 @@ export default function Contact() {
             id="user-description"
             className={errors.description ? "error" : ""}
             placeholder={
-              errors.description
-                ? "Please provide your thoughts!"
-                : "Describe here your thoughts......"
+              errors.description ? t("feedback_error") : t("give_us_feedback")
             }
             {...register("description", {
               required: true,
@@ -132,11 +134,12 @@ export default function Contact() {
           />
           <input
             type="submit"
+            value={t("submit")}
+            readOnly
             className="submit-button"
             onClick={() => setValue("category", selectedCategory)}
           />
         </form>
-        <div className="location"></div>
       </section>
     </main>
   );
