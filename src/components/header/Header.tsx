@@ -9,6 +9,7 @@ export default function Header() {
   const [open, setOpen] = useState<boolean>(false);
 
   const linkData = [
+    { href: "/", text: "Home" },
     { href: "/about", text: "About" },
     { href: "/gallery", text: "Gallery" },
     { href: "/exhibition", text: "Exhibition" },
@@ -32,6 +33,11 @@ export default function Header() {
             </Link>
           </li>
         ))}
+        <li className="language-selector">
+          <button id="english">EN</button>
+          <span>&#183;</span>
+          <button id="french">FR</button>
+        </li>
       </ul>
     </header>
   );

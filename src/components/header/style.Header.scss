@@ -13,7 +13,7 @@
 header {
   display: flex;
   width: 100%;
-  height: 1vh; // ??
+  height: 1vh;
   position: fixed;
   top: 0;
   z-index: 500;
@@ -69,17 +69,17 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 15px;
     text-align: center;
     font-family: $ogg;
     transform: translateX(-100%);
     transition: transform 0.5s ease-in-out;
 
-    @include media("<lg") {
+    @include media("<md") {
       width: 100%;
     }
 
-    @include media(">=lg") {
+    @include media(">=md") {
       width: 40%;
     }
 
@@ -98,16 +98,37 @@ header {
     }
 
     .link {
-      @include media(">xs") {
-        font-size: 60px;
+      @include media("<sm") {
+        font-size: 50px;
       }
 
-      @include media(">sm") {
-        font-size: 80px;
+      @include media(">=sm") {
+        font-size: 70px;
       }
 
       @include media(">=md") {
+        font-size: 6vw;
+      }
+
+      @include media(">=lg") {
         font-size: 5vw;
+      }
+    }
+
+    .language-selector {
+      button,
+      span {
+        @include media("<sm") {
+          font-size: 15px;
+        }
+
+        @include media(">=sm") {
+          font-size: 20px;
+        }
+      }
+
+      button {
+        margin: 0 10px;
       }
     }
   }

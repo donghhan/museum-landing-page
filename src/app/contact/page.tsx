@@ -1,8 +1,9 @@
 "use client";
 import "./style.Contact.scss";
 import { useState } from "react";
-import dropdownIcon from "@/app/icon/dropdown.svg";
+import axios from "axios";
 import { useForm } from "react-hook-form";
+import dropdownIcon from "@/app/icon/dropdown.svg";
 import Image from "next/image";
 import Header from "@/components/header/Header";
 
@@ -24,9 +25,7 @@ export default function Contact() {
     getValues,
     clearErrors,
     setValue,
-  } = useForm<FormInputProp>({
-    mode: "onChange",
-  });
+  } = useForm<FormInputProp>();
 
   const categoryOptions = [
     { name: "Choose Subject" },
@@ -35,9 +34,13 @@ export default function Contact() {
     { name: "Alert" },
   ];
 
-  const formSubmit = (data: FormInputProp) => {
-    console.log(data);
-    console.log(selectedCategory);
+  const formSubmit = async (data: FormInputProp) => {
+    const inputValues = getValues();
+
+    try {
+    } catch (error: any) {
+      console.log(error);
+    }
   };
 
   return (
