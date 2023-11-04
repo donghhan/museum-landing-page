@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 5;
+  // z-index: 5;
 
   .title {
     font-weight: 500;
@@ -64,7 +64,7 @@
           width: 100%;
           font-size: 12px;
           position: absolute;
-          bottom: -150px;
+          bottom: -200px;
           left: 0;
           background-color: $beige;
 
@@ -91,8 +91,6 @@
     }
 
     .error {
-      color: crimson;
-
       &::placeholder {
         color: crimson;
       }

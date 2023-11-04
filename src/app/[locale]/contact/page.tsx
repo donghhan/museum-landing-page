@@ -7,19 +7,15 @@ import { useForm } from "react-hook-form";
 import dropdownIcon from "@/app/icon/dropdown.svg";
 import Image from "next/image";
 import Header from "@/components/header/Header";
-
-interface FormInputProp {
-  email: string;
-  category: string;
-  description: string;
-}
+import formData from "form-data";
+import Mailgun from "mailgun.js";
+import { ContactInputType, SubjectType } from "@/type";
+import { NextResponse } from "next/server";
 
 export default function Contact() {
-  const t = useTranslations("Contact");
-  const chooseCategory = t("choose_category");
   const [categoryMenuOpen, setCategoryMenuOpen] = useState<boolean>(false);
-  const [selectedCategory, setSelectedCateogry] =
-    useState<string>(chooseCategory);
+  const [selectedCategory, setSelectedCateogry] = useState<string>();
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
   const {
     register,
@@ -28,22 +24,37 @@ export default function Contact() {
     getValues,
     clearErrors,
     setValue,
-  } = useForm<FormInputProp>();
+  } = useForm<ContactInputType>();
+
+  const t = useTranslations("Contact");
 
   const categoryOptions = [
-    { name: t("choose_category") },
+    { name: undefined },
     { name: t("suggestion") },
     { name: t("question") },
     { name: t("alert") },
   ];
 
-  const formSubmit = async (data: FormInputProp) => {
+  const formSubmit = async () => {
+    setIsSubmitting(true);
     const inputValues = getValues();
 
     try {
-      console.log(inputValues);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: JSON.stringify(inputValues),
+        headers: {
+          "Content-type": "application/json",
+        },
+      });
+
+      if (res.status === 200) {
+        setIsSubmitting(false);
+      }
+
+      return NextResponse.json({ res });
     } catch (error: any) {
-      console.log(error);
+      console.error("Error: ", error);
     }
   };
 
@@ -75,18 +86,19 @@ export default function Contact() {
               <div
                 id="dropdown-header"
                 onClick={() => setCategoryMenuOpen((prev) => !prev)}
+                style={{ paddingLeft: "20px" }}
+                {...register("category", {
+                  validate: (v: string) =>
+                    v !== undefined || t("category_error"),
+                })}
               >
-                <input
-                  value={
-                    errors.category ? errors.category.message : selectedCategory
-                  }
-                  style={{ cursor: "pointer", caretColor: "transparent" }}
-                  className={errors.category ? "error" : ""}
-                  {...register("category", {
-                    validate: (v: string) =>
-                      v !== t("choose_category") || t("category_error"),
-                  })}
-                />
+                {errors.category ? (
+                  <span style={{ color: "crimson" }}>
+                    {t("category_error")}
+                  </span>
+                ) : (
+                  selectedCategory || t("choose_category")
+                )}
                 <Image
                   className="dropdown-button"
                   src={dropdownIcon}
@@ -137,7 +149,7 @@ export default function Contact() {
             value={t("submit")}
             readOnly
             className="submit-button"
-            onClick={() => setValue("category", selectedCategory)}
+            onClick={() => setValue("category", selectedCategory!)}
           />
         </form>
       </section>
