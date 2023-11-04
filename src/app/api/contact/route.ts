@@ -1,22 +1,41 @@
-import { NextResponse } from "next/server";
-import { Resend } from "resend";
+import { type NextRequest, NextResponse } from "next/server";
+import nodemailer from "nodemailer";
+import Mail from "nodemailer/lib/mailer";
 import { ContactInputType } from "@/type";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
   const { email, category, description } = await req.json();
 
-  try {
-    const data = await resend.emails.send({
-      from: "Help Center <museum-landing-page-beige.vercel.app/>",
-      to: [email as string],
-      subject: `New ${category} email from ${email}`,
-      text: description,
+  const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.GMAIL_USER as string,
+      pass: process.env.GMAIL_PASSWORD as string,
+    },
+  });
+
+  const mailOptions: Mail.Options = {
+    from: "Museum Help Center <museum-landing-page-beige@vercel.app>",
+    to: email as string,
+    subject: `Message from ${email} with ${category}`,
+    text: description,
+  };
+
+  const sendMailPromise = async () =>
+    new Promise<string>((resolve, reject) => {
+      transporter.sendMail(mailOptions, (error: any) => {
+        if (!error) {
+          resolve("Email sent");
+        } else {
+          reject(error.message);
+        }
+      });
     });
 
-    return NextResponse.json(data);
-  } catch (error) {
-    return NextResponse.json({ error });
+  try {
+    await sendMailPromise();
+    return NextResponse.json({ message: "Email sent" });
+  } catch (err) {
+    return NextResponse.json({ error: err }, { status: 500 });
   }
 }

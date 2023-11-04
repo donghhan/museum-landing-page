@@ -13,6 +13,7 @@
         "alert": "Alert",
         "give_us_feedback": "Give us your feedback!",
         "feedback_error": "Please provide your thoughts!",
-        "submit": "Submit"
+        "submit": "Submit",
+        "submitting": "Submitting..."
     }
 }

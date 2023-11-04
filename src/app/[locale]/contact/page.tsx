@@ -2,15 +2,11 @@
 import "./style.Contact.scss";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import dropdownIcon from "@/app/icon/dropdown.svg";
 import Image from "next/image";
 import Header from "@/components/header/Header";
-import formData from "form-data";
-import Mailgun from "mailgun.js";
-import { ContactInputType, SubjectType } from "@/type";
-import { NextResponse } from "next/server";
+import { ContactInputType } from "@/type";
 
 export default function Contact() {
   const [categoryMenuOpen, setCategoryMenuOpen] = useState<boolean>(false);
@@ -21,7 +17,6 @@ export default function Contact() {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
     clearErrors,
     setValue,
   } = useForm<ContactInputType>();
@@ -35,27 +30,23 @@ export default function Contact() {
     { name: t("alert") },
   ];
 
-  const formSubmit = async () => {
+  const formSubmit = async (data: ContactInputType) => {
     setIsSubmitting(true);
-    const inputValues = getValues();
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        body: JSON.stringify(inputValues),
-        headers: {
-          "Content-type": "application/json",
-        },
-      });
-
-      if (res.status === 200) {
+    fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => {
+        res.json();
         setIsSubmitting(false);
-      }
-
-      return NextResponse.json({ res });
-    } catch (error: any) {
-      console.error("Error: ", error);
-    }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   return (
@@ -116,9 +107,9 @@ export default function Contact() {
               </div>
               {categoryMenuOpen && (
                 <ul className="dropdown-menu">
-                  {categoryOptions.map((i) => (
+                  {categoryOptions.map((i, index) => (
                     <li
-                      key={i.name}
+                      key={index}
                       value={i.name}
                       onClick={() => {
                         setSelectedCateogry(i.name);
@@ -144,13 +135,24 @@ export default function Contact() {
               required: true,
             })}
           />
-          <input
-            type="submit"
-            value={t("submit")}
-            readOnly
-            className="submit-button"
-            onClick={() => setValue("category", selectedCategory!)}
-          />
+          {isSubmitting ? (
+            <input
+              type="submit"
+              value={t("submitting")}
+              readOnly
+              className="submit-button"
+              onClick={() => setValue("category", selectedCategory!)}
+              style={{ opacity: ".5" }}
+            />
+          ) : (
+            <input
+              type="submit"
+              value={t("submit")}
+              readOnly
+              className="submit-button"
+              onClick={() => setValue("category", selectedCategory!)}
+            />
+          )}
         </form>
       </section>
     </main>
