@@ -1,1 +1,107 @@
 @use "../../../styles/variables/" as *;
+
+#about {
+  padding-top: 80px;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .text-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .title {
+        text-align: center;
+
+        @include media(">=md") {
+          font-size: 80px;
+          max-width: 800px;
+          line-height: 1.125;
+        }
+      }
+
+      .sub-title {
+        @include media(">=md") {
+          font-size: 30px;
+          margin-top: 20px;
+        }
+      }
+    }
+
+    .paragraph {
+      max-width: 600px;
+      margin-top: 30px;
+      display: grid;
+
+      @include media(">=md") {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, minmax(200px, auto));
+        gap: 20px;
+      }
+
+      p {
+        line-height: 1.5;
+
+        &:nth-of-type(1) {
+          font-weight: 600;
+          font-size: 18px;
+        }
+      }
+    }
+
+    .image-wrapper {
+      position: relative;
+    }
+  }
+
+  #eugene-delacroix {
+    .image-wrapper {
+      @include media(">=md") {
+        margin-top: 30px;
+        width: 600px;
+        height: 400px;
+      }
+    }
+  }
+
+  #eugene-delacroix__exp {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      text-align: center;
+
+      @include media(">=md") {
+        font-size: 40px;
+        max-width: 700px;
+      }
+    }
+  }
+
+  #museum-info {
+    margin-top: 70px;
+
+    .image-wrapper {
+      align-self: flex-end;
+      margin-bottom: 70px;
+
+      @include media(">=md") {
+        width: 70%;
+        height: 700px;
+      }
+    }
+
+    .text-wrapper {
+      p {
+        font-weight: 500;
+        font-size: inherit;
+      }
+    }
+  }
+}

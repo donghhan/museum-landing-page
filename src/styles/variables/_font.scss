@@ -61,5 +61,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: AvantGarde;
+  src: url("../font/AvantGarde-Bold.woff2") format("woff2"),
+    url("../font/AvantGarde-Bold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 $ogg: "Ogg";
 $avantGarde: "AvantGarde";
