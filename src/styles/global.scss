@@ -32,6 +32,11 @@ span {
   display: inline-block;
 }
 
+span,
+p {
+  font-family: $avantGarde;
+}
+
 ul,
 li {
   list-style: none;

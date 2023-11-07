@@ -13,6 +13,22 @@ const nextConfig = {
       },
     ];
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api-www.louvre.fr",
+        port: "",
+        pathname: "/sites/default/files/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.musee-delacroix.fr",
+        port: "",
+        pathname: "/IMG/**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
