@@ -1,6 +1,18 @@
 {
     "Home": {},
-    "About": {},
+    "About": {
+        "hero_title": "Le musée national Eugène-Delacroix",
+        "hero_subtitle": "Situé dans le dernier appartement et le dernier atelier occupés par le peintre",
+        "hero_flavor_text": "Peintre de génie, Eugène Delacroix était aussi un écrivain de grand talent.",
+        "hero_paragraph_1": "Situé dans le dernier appartement et le dernier atelier occupés par le peintre, le musée national Eugène-Delacroix est à la fois un lieu de mémoire et un lieu d'hommage à l'artiste. Il fut créé à l'initiative des plus grands artistes des années 1920 - Maurice Denis, Paul Signac, Édouard Vuillard, Ker-Xavier Roussel, notamment - et témoigne de l'admiration qu'ils portèrent au peintre et à son œuvre.",
+        "hero_paragraph_2": "Le musée national Eugène-Delacroix est installé dans le dernier appartement et l'atelier où Eugène Delacroix (1798-1863) a vécu et créé durant plusieurs années et où il est mort en 1863. Il est situé au cœur de Paris, dans le quartier de Saint-Germain-des-Prés. Musée-atelier, il rend hommage à un des plus grands artistes du XIXe siècle tout en proposant de porter un regard singulier sur son œuvre.",
+        "hero_paragraph_3": "Il a ouvert ses portes au public en 1932 grâce à la Société des Amis d'Eugène Delacroix qui, réunissant notamment des artistes comme Maurice Denis ou Paul Signac, a permis de transformer ce lieu de mémoire en musée. Depuis 2004, le musée fait partie de l'établissement public du musée du Louvre.",
+        "hero_paragraph_4": "Le musée Eugène-Delacroix est fermé du 19 septembre 2023 au 19 mars 2024 en raison de travaux. Le musée rouvre ses portes le 20 mars avec une nouvelle exposition inédite « Ingres et Delacroix. Objets d'artistes ».",
+        "display_title": "Que Peut-On Voir Au Musée ?",
+        "display_paragraph_1": "Dans le dernier appartement et atelier d'Eugène Delacroix, on peut retrouver des œuvres emblématiques du peintre comme Madeleine au désert, qui a inspiré Baudelaire, L'Éducation de la Vierge, Roméo et Juliette ou la fresque Bacchus et un tigre. On peut également découvrir des œuvres moins connues comme cette Étude peinte d'après un des Caprices de Goya, deux plats de reliures médiévales et une veste orientale, si caractéristique du travail de création de l'artiste ou une maquette pour le décor de la bibliothèque de l'Assemblée nationale.",
+        "display_paragraph_2": "Esquisses et tableaux achevés, dessins réalisés grâce à différentes techniques, gravures… permettent de découvrir les différents aspects du talent de l'artiste et de mieux comprendre son travail de création. L'entourage de Delacroix est également évoqué par des portraits ou des copies de ses œuvres majeures, comme La Mort de Sardanapale ou Les Femmes d'Alger, réalisées par ses amis ou par des admirateurs comme Fantin-Latour.",
+        "display_paragraph_3": "Le musée national Eugène-Delacroix propose des accrochages fréquemment renouvelés de sa collection accompagnés d'une programmation culturelle riche et diversifiée : conférences, concerts, ateliers, rencontres avec des artistes... Chaque année, une exposition temporaire permet d'aborder un nouvel aspect de l'art de Delacroix ou de porter une vision contemporaine sur son époque. Véritable havre de paix pour les visiteurs du musée, le jardin permet d'admirer la façade de l'atelier que Delacroix a fait construire et dont il a choisi le décor. Il a accueilli près de 75 000 visiteurs en 2019."
+    },
     "Contact": {
         "title": "Contact",
         "email_input": "Email",
