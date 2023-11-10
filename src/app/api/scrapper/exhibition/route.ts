@@ -1,4 +1,4 @@
-import { ScrapExhibition } from "@/lib/scraper";
+import { ScrapExhibition } from "@/lib/scrapper";
 import { NextResponse } from "next/server";
 
 export async function GET() {

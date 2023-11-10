@@ -1,6 +1,6 @@
 "use client";
 import axios from "axios";
-import { ScrapExhibition } from "@/lib/scraper";
+import { ScrapExhibition } from "@/lib/scrapper";
 import { useEffect } from "react";
 import useSWR from "swr";
 
