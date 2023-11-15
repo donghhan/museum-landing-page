@@ -84,7 +84,7 @@ export async function ScrapExhibition() {
       .concat(secondaryExhibitionDate)
       .map((e) => dateConverter(e));
 
-    console.log(data);
+    console.log(title, subTitle, date);
   } catch (error: any) {
     throw new Error(`Failed to scrape data: ${error.message}`);
   }
