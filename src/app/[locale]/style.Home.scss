@@ -1,0 +1,43 @@
+@use "../../styles/variables/" as *;
+
+#home {
+  position: relative;
+
+  #container {
+    @include media("<lg") {
+      width: 100%;
+    }
+
+    @include media(">=lg") {
+      width: 200%;
+    }
+
+    .gallery {
+      border: 1px solid red;
+      height: 40vh;
+    }
+
+    .title-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 20vh;
+
+      .title {
+        font-family: $ogg;
+
+        @include media("<md") {
+          font-size: 50px;
+        }
+
+        @include media(">=md") {
+          font-size: 90px;
+        }
+
+        @include media(">=lg") {
+          font-size: 180px;
+        }
+      }
+    }
+  }
+}

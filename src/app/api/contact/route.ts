@@ -1,7 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
-import { ContactInputType } from "@/type";
 
 export async function POST(req: NextRequest) {
   const { email, category, description } = await req.json();
