@@ -1,6 +1,10 @@
+"use client";
 import "./style.Home.scss";
+import { useRef } from "react";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Header from "@/components/header/Header";
+import PortraitCard from "@/components/portrait-card/PortraitCard";
 
 async function FetchHomePortrait(key: string) {
   return fetch(`https://collections.louvre.fr/ark:/53355/${key}.json`, {
@@ -8,25 +12,40 @@ async function FetchHomePortrait(key: string) {
     headers: {
       Accept: "application/json",
     },
-  })
-    .then((response) => response.json())
-    .then((response) => console.log(JSON.stringify(response)));
+  }).then((response) => response.json());
+  // .then((response) => console.log(JSON.stringify(response)));
 }
 
-export default async function Home() {
-  const keys = ["cl010065872"];
-  const portraits = keys.map((key: string) => FetchHomePortrait(key));
+export default function Home() {
+  const upperKeys = [
+    "cl010065872",
+    "cl010052610",
+    "cl010052642",
+    "cl010052669",
+  ];
+  const upperPortraits = upperKeys.map((key: string) => FetchHomePortrait(key));
+
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "200%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <main id="home">
+    <>
       <Header />
-      <section id="container">
-        <div className="gallery upper"></div>
-        <div className="title-wrapper">
+      <main id="home" ref={ref}>
+        <motion.div
+          className="gallery upper"
+          style={{ y: backgroundY }}
+        ></motion.div>
+        <motion.div className="title-wrapper" style={{ y: textY }}>
           <span className="title">Escape With The Louvre</span>
-        </div>
+        </motion.div>
         <div className="gallery lower"></div>
-      </section>
-    </main>
+      </main>
+    </>
   );
 }
