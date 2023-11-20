@@ -1,5 +1,5 @@
 import "./style.PortraitCard.scss";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 
 export default function PortraitCard({
   title,

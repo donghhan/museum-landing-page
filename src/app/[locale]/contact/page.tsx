@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import dropdownIcon from "@/app/icon/dropdown.svg";
 import Image from "next/image";
 import Header from "@/components/header/Header";
-import { ContactInputType } from "@/type";
 
 export default function Contact() {
   const [categoryMenuOpen, setCategoryMenuOpen] = useState<boolean>(false);
@@ -19,7 +18,7 @@ export default function Contact() {
     formState: { errors },
     clearErrors,
     setValue,
-  } = useForm<ContactInputType>();
+  } = useForm<ContactInputData>();
 
   const t = useTranslations("Contact");
 
@@ -30,7 +29,7 @@ export default function Contact() {
     { name: t("alert") },
   ];
 
-  const formSubmit = async (data: ContactInputType) => {
+  const formSubmit = async (data: ContactInputData) => {
     setIsSubmitting(true);
 
     fetch("/api/contact", {

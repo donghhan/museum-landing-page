@@ -17,3 +17,9 @@ interface PortraitData {
   image: PortraitImage[];
   creator: PortraitCreator[];
 }
+
+interface ContactInputData {
+  email: string;
+  category: string;
+  description: string;
+}
