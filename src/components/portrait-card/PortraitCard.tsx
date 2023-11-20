@@ -10,13 +10,15 @@ export default function PortraitCard({
 }: PortraitData): JSX.Element {
   return (
     <div className="card-wrapper">
-      <Image
-        src={image[0].urlThumbnail}
-        alt={`Portrait iamge of ${title}`}
-        className="portrait-image"
-        width={100}
-        height={100}
-      />
+      <div className="image-wrapper">
+        <Image
+          src={image[0].urlThumbnail}
+          alt={`Portrait iamge of ${title}`}
+          className="portrait-image"
+          width={300}
+          height={300}
+        />
+      </div>
       <div className="text-wrapper">
         <div className="portrait-info">
           <span className="year">{dateCreated[0].startYear}</span>

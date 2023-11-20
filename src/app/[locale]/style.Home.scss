@@ -1,22 +1,11 @@
 @use "../../styles/variables/" as *;
 
 #home {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-
-  @include media(">=lg") {
-    overflow-x: scroll;
-    white-space: nowrap;
-  }
+  width: fit-content;
 
   .gallery {
-    border: 1px solid red;
     height: 40vh;
     display: flex;
-
-    @include media(">=lg") {
-    }
   }
 
   .title-wrapper {
