@@ -3,7 +3,11 @@
 .card-wrapper {
   min-width: 300px;
   height: 300px;
+  border: 1px solid red;
 
   .text-wrapper {
+    .title {
+      font-family: $ogg;
+    }
   }
 }

@@ -6,13 +6,17 @@
   height: 100vh;
 
   @include media(">=lg") {
-    overflow: auto;
+    overflow-x: scroll;
     white-space: nowrap;
   }
 
   .gallery {
     border: 1px solid red;
     height: 40vh;
+    display: flex;
+
+    @include media(">=lg") {
+    }
   }
 
   .title-wrapper {

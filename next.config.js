@@ -27,6 +27,12 @@ const nextConfig = {
         port: "",
         pathname: "/IMG/**",
       },
+      {
+        protocol: "https",
+        hostname: "collections.louvre.fr",
+        port: "",
+        pathname: "/media/cache/small/**",
+      },
     ],
   },
 };

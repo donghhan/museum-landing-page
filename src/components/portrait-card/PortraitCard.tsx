@@ -1,32 +1,29 @@
 import "./style.PortraitCard.scss";
 import Image, { StaticImageData } from "next/image";
 
-interface PortraitCardProp {
-  id: string;
-  src: StaticImageData;
-  alt: string;
-  author: string;
-  year: number;
-  paintType: string;
-}
-
 export default function PortraitCard({
-  id,
-  src,
-  alt,
-  author,
-  year,
-  paintType,
-}: PortraitCardProp): JSX.Element {
+  title,
+  materialsAndTechniques,
+  dateCreated,
+  image,
+  creator,
+}: PortraitData): JSX.Element {
   return (
-    <div id={id} className="card-wrapper">
-      <Image src={src} alt={alt} className="portrait-image" />
+    <div className="card-wrapper">
+      <Image
+        src={image[0].urlThumbnail}
+        alt={`Portrait iamge of ${title}`}
+        className="portrait-image"
+        width={100}
+        height={100}
+      />
       <div className="text-wrapper">
         <div className="portrait-info">
-          <span className="year">{year}</span>
-          <span className="paint-type">{paintType}</span>
+          <span className="year">{dateCreated[0].startYear}</span>
+          <span className="paint-type">{materialsAndTechniques}</span>
         </div>
-        <span className="author">{author}</span>
+        <span className="title">{title}</span>
+        <span className="author">{creator[0].label}</span>
       </div>
     </div>
   );
