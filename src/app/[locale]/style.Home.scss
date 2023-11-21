@@ -2,30 +2,52 @@
 
 #home {
   width: fit-content;
+  position: relative;
 
   .gallery {
-    height: 40vh;
-    display: flex;
+    @include media("<md") {
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      justify-content: space-between;
+      align-content: space-between;
+
+      &.lower {
+        display: none;
+      }
+    }
+
+    @include media(">=md") {
+      display: flex;
+      height: 40vh;
+    }
   }
 
   .title-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 20vh;
+    @include media("<md") {
+      position: absolute;
+      top: 45%;
+      left: 25%;
+    }
+
+    @include media(">=md") {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 20vh;
+    }
 
     .title {
       font-family: $ogg;
 
       @include media("<md") {
-        font-size: 50px;
+        font-size: 30px;
+        white-space: nowrap;
       }
 
       @include media(">=md") {
-        font-size: 90px;
-      }
-
-      @include media(">=lg") {
         font-size: 150px;
       }
     }

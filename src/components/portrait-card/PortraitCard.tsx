@@ -15,8 +15,8 @@ export default function PortraitCard({
           src={image[0].urlThumbnail}
           alt={`Portrait iamge of ${title}`}
           className="portrait-image"
-          width={300}
-          height={300}
+          width={250}
+          height={250}
         />
       </div>
       <div className="text-wrapper">

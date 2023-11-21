@@ -42,7 +42,7 @@ export default function Home() {
           ))}
         </motion.div>
         <motion.div className="title-wrapper" style={{ x: textX }}>
-          <motion.span className="title">Escape With The Louvre</motion.span>
+          <span className="title">Escape With The Louvre</span>
         </motion.div>
         <motion.div className="gallery lower">
           {data.slice(4).map((i, index) => (
