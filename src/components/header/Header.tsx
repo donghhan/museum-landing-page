@@ -17,7 +17,6 @@ export default function Header() {
   const linkData = [
     { href: "/", text: "Home" },
     { href: "/about", text: "About" },
-    { href: "/gallery", text: "Gallery" },
     { href: "/exhibition", text: "Exhibition" },
     { href: "/contact", text: "Contact" },
   ];

@@ -1,0 +1,11 @@
+@use "../../../styles/variables/" as *;
+
+#exhibition {
+  width: 100%;
+  padding: 80px 0 0 100px;
+
+  .head-title {
+    font-family: $ogg;
+    font-size: 50px;
+  }
+}

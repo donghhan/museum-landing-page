@@ -1,20 +1,27 @@
 "use client";
+import "./style.Exhibition.scss";
 import axios from "axios";
 import { ScrapExhibition } from "@/lib/scrapper";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+import Header from "@/components/header/Header";
 import useSWR from "swr";
 
 export default function Exhibition() {
-  const fetcher = async (url: string) => {
-    const res = await fetch(`${url}`);
-  };
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch("/api/scrapper/exhibition").then((response) =>
+      response.json().then((data) => setData(data))
+    );
+  }, []);
 
-  const { data, error, isLoading } = useSWR(
-    "/api/scrapper/exhibition",
-    fetcher
+  console.log(data);
+
+  return (
+    <main>
+      <Header />
+      <section id="exhibition">
+        <span className="head-title">Exhibition</span>
+      </section>
+    </main>
   );
-
-  // console.log(data);
-
-  return <main>This is exhibition page</main>;
 }

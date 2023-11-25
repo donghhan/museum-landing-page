@@ -60,6 +60,11 @@ export async function ScrapExhibition() {
     const mainLinkTitle = [$(".Card_Main_link").text().trim()];
     const mainLinkDate = [$(".Card_Main_date").text().trim()];
     const mainLinkSubtitle = [$(".Card_Main_subtitle").text().trim()];
+    const mainContent = [
+      ...mainLinkTitle,
+      ...mainLinkSubtitle,
+      ...mainLinkDate,
+    ];
 
     const secondaryTitle = $(
       ".Expositions_Grid_content .Card_child .Card_Secondary_title"
@@ -78,13 +83,13 @@ export async function ScrapExhibition() {
     )
       .get()
       .map((e) => $(e).text());
-    const title = mainLinkTitle.concat(secondaryTitle);
-    const subTitle = mainLinkSubtitle.concat(secondarySubTitle);
-    const date = mainLinkDate
-      .concat(secondaryExhibitionDate)
-      .map((e) => dateConverter(e));
+    const secondaryContent = [
+      secondaryTitle,
+      secondarySubTitle,
+      secondaryExhibitionDate.map((e) => dateConverter(e)),
+    ];
 
-    console.log(title, subTitle, date);
+    return [...mainContent, ...secondaryContent];
   } catch (error: any) {
     throw new Error(`Failed to scrape data: ${error.message}`);
   }
